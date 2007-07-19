@@ -1,6 +1,6 @@
 %define	name	gperiodic
-%define	version 2.0.8
-%define	release	%mkrel 3
+%define	version 2.0.10
+%define	release	%mkrel 1
 %define summary A graphical application for browsing the periodic table
 %define group	Sciences/Chemistry
 

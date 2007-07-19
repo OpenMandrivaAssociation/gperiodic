@@ -29,38 +29,25 @@ element.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-cd po/; make enable_nls=1;%makeinstall enable_nls=1; cd ..
-install -m755 gperiodic -D $RPM_BUILD_ROOT%{_bindir}/gperiodic
+%makeinstall_std
 
 # Icons
-convert gperiodic-crystal.png -resize 32x32 gperiodic-crystal-32.png
-convert gperiodic-crystal.png -resize 16x16 gperiodic-crystal-16.png
-convert gperiodic.png -resize 32x32 gperiodic-32.png
-convert gperiodic.png -resize 16x16 gperiodic-16.png
-install -m644 ./gperiodic-crystal.png -D $RPM_BUILD_ROOT%{_liconsdir}/gperiodic-crystal.png
-install -m644 ./gperiodic-crystal-16.png -D $RPM_BUILD_ROOT%{_miconsdir}/gperiodic-crystal.png
-install -m644 ./gperiodic-crystal-32.png -D $RPM_BUILD_ROOT%{_iconsdir}/gperiodic-crystal.png
-install -m644 ./gperiodic.png -D $RPM_BUILD_ROOT%{_iconsdir}/gperiodic.png
-install -m644 ./gperiodic-16.png -D $RPM_BUILD_ROOT%{_miconsdir}/gperiodic.png
-install -m644 ./gperiodic-32.png -D $RPM_BUILD_ROOT%{_iconsdir}/gperiodic.png
+mkdir -p %{buildroot}%{_iconsdir}/hicolor/16x16/apps/
+convert -geometry 16x16 gperiodic.png %{buildroot}%{_iconsdir}/hicolor/16x16/apps/%{name}.png
+mkdir -p %{buildroot}%{_iconsdir}/hicolor/32x32/apps/
+convert -geometry 32x32 gperiodic.png %{buildroot}%{_iconsdir}/hicolor/32x32/apps/%{name}.png
+mkdir -p %{buildroot}%{_iconsdir}/hicolor/48x48/apps/
+convert -geometry 48x48 gperiodic.png %{buildroot}%{_iconsdir}/hicolor/48x48/apps/%{name}.png
 
-
-mkdir -p $RPM_BUILD_ROOT%{_menudir}/
-cat << EOF > $RPM_BUILD_ROOT%{_menudir}/%{name}
-?package(%{name}):command="%{_bindir}/gperiodic" \
-                icon="gperiodic-crystal.png" \
-                needs="x11" \
-                section="More Applications/Sciences/Chemistry" \
-                title="Gperiodic" \
-                longtitle="%{summary}"
-EOF
 %find_lang %{name}
 
 %post
 %{update_menus}
+%{update_icon_cache} hicolor
 
 %postun
 %{clean_menus}
+%{clean_icon_cache} hicolor
 
 %clean 
 rm -rf $RPM_BUILD_ROOT 
@@ -68,10 +55,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(-,root,root)
 %doc AUTHORS ChangeLog README
-%{_bindir}/gperiodic
-%{_iconsdir}/*
-%{_miconsdir}/*
-%{_liconsdir}/*
-%{_menudir}/%{name}
-
-
+%{_bindir}/*
+%{_iconsdir}/hicolor/*/apps/*.png
+%{_datadir}/applications/*.desktop
+%{_datadir}/pixmaps/*.png

@@ -11,7 +11,6 @@ Release:	%{release}
 Source0:	%{name}-%{version}.tar.bz2
 URL:		http://koti.welho.com/jfrantz/software/gperiodic.html
 Group:		%{group}
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 License:	GPL
 BuildRequires:	gtk2-devel ImageMagick
 #BuildRequires:	

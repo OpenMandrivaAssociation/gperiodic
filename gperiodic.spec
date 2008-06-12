@@ -41,13 +41,17 @@ convert -geometry 48x48 gperiodic.png %{buildroot}%{_iconsdir}/hicolor/48x48/app
 
 %find_lang %{name}
 
+%if %mdkversion < 200900
 %post
 %{update_menus}
 %{update_icon_cache} hicolor
+%endif
 
+%if %mdkversion < 200900
 %postun
 %{clean_menus}
 %{clean_icon_cache} hicolor
+%endif
 
 %clean 
 rm -rf $RPM_BUILD_ROOT 

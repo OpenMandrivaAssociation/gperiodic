@@ -13,7 +13,7 @@ URL:		http://koti.welho.com/jfrantz/software/gperiodic.html
 Group:		%{group}
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 License:	GPL
-BuildRequires:	gtk2-devel ImageMagick
+BuildRequires:	gtk2-devel imagemagick
 #BuildRequires:	
 
 %description

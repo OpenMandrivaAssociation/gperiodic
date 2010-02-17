@@ -8,8 +8,8 @@ Name:		%{name}
 Summary:	%{summary}
 Version:	%{version} 
 Release:	%{release} 
-Source0:	%{name}-%{version}.tar.bz2
-URL:		http://koti.welho.com/jfrantz/software/gperiodic.html
+Source0:	http://www.frantz.fi/software/%{name}-%{version}.tar.bz2
+URL:		http://www.frantz.fi/software/gperiodic.php
 Group:		%{group}
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 License:	GPL
@@ -23,6 +23,7 @@ element.
 
 %prep
 %setup -q
+sed -i -e "s|-DGTK_DISABLE_DEPRECATED|%{optflags} %{ldflags}|" Makefile
 
 %build
 %make

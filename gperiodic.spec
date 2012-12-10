@@ -64,3 +64,41 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/*/apps/*.png
 %{_datadir}/applications/*.desktop
 %{_datadir}/pixmaps/*.png
+
+
+%changelog
+* Sun Dec 05 2010 Oden Eriksson <oeriksson@mandriva.com> 2.0.10-5mdv2011.0
++ Revision: 610974
+- rebuild
+
+* Wed Feb 17 2010 Funda Wang <fwang@mandriva.org> 2.0.10-4mdv2010.1
++ Revision: 506987
+- fix build
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - rebuild
+    - rebuild
+    - kill re-definition of %%buildroot on Pixel's request
+
+  + Oden Eriksson <oeriksson@mandriva.com>
+    - lowercase ImageMagick
+
+  + Pixel <pixel@mandriva.com>
+    - rpm filetriggers deprecates update_menus/update_scrollkeeper/update_mime_database/update_icon_cache/update_desktop_database/post_install_gconf_schemas
+
+  + Olivier Blin <oblin@mandriva.com>
+    - restore BuildRoot
+
+* Thu Jul 19 2007 Funda Wang <fwang@mandriva.org> 2.0.10-1mdv2008.0
++ Revision: 53609
+- Use standard install method
+- use fdo icon theme
+- New version
+
+
+* Mon Jan 15 2007 Lenny Cartier <lenny@mandriva.com> 2.0.8-3mdv2007.0
++ Revision: 109225
+- Buildrequires
+- Rebuild
+- Import gperiodic
+

@@ -9,7 +9,7 @@ Summary:	%{summary}
 Version:	%{version} 
 Release:	%{release} 
 Source0:	http://www.frantz.fi/software/%{name}-%{version}.tar.bz2
-URL:		http://www.frantz.fi/software/gperiodic.php
+URL:		https://www.frantz.fi/software/gperiodic.php
 Group:		%{group}
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 License:	GPL

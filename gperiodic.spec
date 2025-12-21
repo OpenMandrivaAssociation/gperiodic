@@ -13,6 +13,7 @@ URL:		https://www.frantz.fi/software/gperiodic.php
 Group:		%{group}
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 License:	GPL
+BuildRequires:	make
 BuildRequires:	gtk2-devel imagemagick
 #BuildRequires:	
 
